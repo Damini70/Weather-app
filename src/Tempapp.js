@@ -1,9 +1,11 @@
 import React,{useState,useEffect} from "react";
-import { FaCloudSun } from "react-icons/fa";
-import { FaCloudMoon } from "react-icons/fa";
+import {WiSunrise} from "react-icons/wi";
+import {WiHail} from "react-icons/wi";
+import {WiSunset} from "react-icons/wi";
 import { FaTemperatureHigh } from "react-icons/fa";
 import { FaStreetView } from "react-icons/fa";
-import { FaCloudRain } from "react-icons/fa";
+
+import {WiRaindrop } from "react-icons/wi";
 
 
 import './App.css';
@@ -11,8 +13,8 @@ import './App.css';
 const Tempapp=()=>{
     const [city,setCity]=useState("");
     const [search,setSearch]=useState("Patna");
-    const [sunrise,setSunrise]=useState("");
-    const [sunset,setSunset]=useState("");
+    const [sun,setSun]=useState({});
+    // const [sunset,setSunset]=useState("");
 
     useEffect(()=>{
         const fetchApi=async()=>{
@@ -21,28 +23,18 @@ const Tempapp=()=>{
             const resJson=await response.json();
             setCity(resJson.main);
             // console.log(resJson.main);
-            const rise=resJson.sys.sunrise;
-            const set=resJson.sys.sunset;
-            const unix1=parseInt(rise)*1000
-            const unix2=parseInt(set)*1000
+            const {sunrise,sunset,country}=resJson.sys;
+          
+            const set=new Date(sunset*1000)
+            const rise=new Date(sunrise*1000)
 
-   
-            const date1=new Date(unix1);
-            const date2=new Date(unix2);
+            const settime=`${set.getHours()}:${set.getMinutes()}`
+            const risetime=`${rise.getHours()}:${rise.getMinutes()}`
+            const data1={settime,risetime,country}
+            setSun(data1)
 
-    // console.log(unix1);
-            const time1=date1.toUTCString();
-            const time2=date2.toUTCString();
-    console.log(time1.slice(-11, -4))
-    const r=time1.slice(-11, -4)
-    setSunrise(r);
-    const s=time2.slice(-11, -4)
-    console.log(time2.slice(-11, -4))
-    setSunset(s)
-
-            // const date = new Date(*1000);
-// console. log(date. toLocaleDateString("en-US"));
-            //   console.log(typeof(sun));
+            
+        
         };
         fetchApi();
     },[search])
@@ -57,12 +49,20 @@ const Tempapp=()=>{
         <h1><FaStreetView style={{fontSize: "4rem"}}/> {search}</h1>
         {!city?(<h2>No City Found</h2>):
         (<div>
+           <h3>Country : {sun.country}</h3> 
            <h3 style={{color: "orange"}}>Temp : {city.temp} Celsius</h3> 
-           <h3>Min Temp: {city.temp_min} <FaTemperatureHigh style={{color: "skyblue"}}/></h3>
-           <h3>Max Temp: {city.temp_max} <FaTemperatureHigh style={{color: "red"}}/></h3>
-           <h3 style={{color: "blue"}}><FaCloudRain/>  Humidity: {city.humidity}%</h3>
+          <div className="temp">
+          <h3 style={{marginRight:"5rem"}}>Min Temp: {city.temp_min}  <FaTemperatureHigh style={{color: "skyblue"}}/></h3>
+           <h3>Max Temp: {city.temp_max}  <FaTemperatureHigh style={{color: "red"}}/></h3>
+          </div>
+           <div className="extra">
+            <h3 style={{color: "aqua",marginRight:"5rem"}}><WiRaindrop style={{fontSize: "2rem"}}/>  Humidity: {city.humidity}%</h3>
+           <h3 style={{color: "aqua"}}><WiHail style={{fontSize: "2rem"}}/> Pressure: {city.pressure} hPa</h3>
+           </div>
 
-          <h4><span style={{paddingRight: "3rem"}}><FaCloudSun style={{fontSize: "1.3rem",color: "orange"}}/> Sunrise: {sunrise}</span> <span><FaCloudMoon style={{fontSize: "1.3rem",color: "darkgrey"}}/> Sunset: {sunset} </span>  </h4> 
+          <h4><span style={{paddingRight: "3rem"}}><WiSunrise style={{fontSize: "1.3rem",color: "orange"}}/> Sunrise: {sun.risetime}</span> <span><WiSunset style={{fontSize: "1.3rem",color: "darkgrey"}}/> Sunset: {sun.settime} </span>  </h4> 
+
+
          
 
            </div>)}
