@@ -102,20 +102,12 @@ const Tempapp=()=>{
             <h3 style={{color: "aqua",marginRight:"5rem"}}><WiHumidity style={{fontSize: "2rem"}}/>  Humidity: {city.humidity}%</h3>
            <h3 style={{color: "aqua"}}><WiHail style={{fontSize: "2rem"}}/> Pressure: {city.pressure} hPa</h3>
            </div><hr/>
+
          <div className="time">
          <h4><span ><WiSunrise style={{fontSize: "1.9rem",color: "red"}}/> Sunrise: {sun.risetime}</span> <span><WiSunset style={{fontSize: "1.9rem",color: "darkorange"}}/> Sunset: {sun.settime} </span> 
           <span><WiTime3 style={{fontSize: "1.9rem",color: "pink"}}/>Day: {time}</span> </h4> 
          </div>
-        
-
-
-
-         
-
-
-         
-
-           </div>)}
+         </div>)}
         
        
         </>
