@@ -26,15 +26,19 @@ input[type=text]{
 }
 .extra{
   display: flex;
-  margin-left: 6rem;
+  padding-left: 6rem;
+  background-color: blue;
 
 
 }
 .temp{
   display: flex;
-  margin-left: 6rem;
+  margin-left: 8rem;
 
 
+}
+.time span{
+ padding: 1rem
 }
 
 
