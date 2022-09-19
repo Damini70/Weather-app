@@ -26,19 +26,20 @@ input[type=text]{
 }
 .extra{
   display: flex;
-  padding-left: 6rem;
+  justify-content: space-around;
   background-color: blue;
 
 
 }
 .temp{
   display: flex;
-  margin-left: 8rem;
+  justify-content: space-around;
 
 
 }
 .time span{
- padding: 1rem
+ padding: 1rem;
+ justify-content: space-around;
 }
 
 
@@ -63,6 +64,28 @@ input[type=text]{
 
 .App-link {
   color: #61dafb;
+}
+@media screen and (max-width: 696px) {
+  body{
+    text-align: center;
+  }
+  .extra{
+    display:grid;
+    text-align: justify;
+  }
+  .temp{
+    display: grid;
+    text-align: justify;
+    
+  }
+  .time h4{
+    display: grid;
+    text-align: justify;
+  }
+  .time h5{
+    display: grid;
+    text-align: justify;
+  }
 }
 
 @keyframes App-logo-spin {

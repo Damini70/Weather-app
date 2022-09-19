@@ -45,8 +45,8 @@ const Tempapp=()=>{
             setWeather(wea);
             const {speed}=resJson.wind;
             setWind(speed);
-            setTime(new Date().toLocaleDateString());
-            console.log(time)
+            setTime(new Date());
+            // console.log(time)
 
             
             
@@ -94,18 +94,18 @@ const Tempapp=()=>{
            <h4><WiStrongWind/> Wind : {wind} m/s</h4>
 
           <div className="temp">
-          <h3 style={{marginRight:"5rem"}}>Min Temp: {city.temp_min}  <FaTemperatureHigh style={{color: "skyblue"}}/></h3>
-           <h3>Max Temp: {city.temp_max}  <FaTemperatureHigh style={{color: "red"}}/></h3>
+          <h3>MinTemp: {city.temp_min}  <FaTemperatureHigh style={{color: "skyblue"}}/></h3>
+           <h3>MaxTemp: {city.temp_max}  <FaTemperatureHigh style={{color: "red"}}/></h3>
           </div><hr/>
 
            <div className="extra">
-            <h3 style={{color: "aqua",marginRight:"5rem"}}><WiHumidity style={{fontSize: "2rem"}}/>  Humidity: {city.humidity}%</h3>
+            <h3 style={{color: "aqua"}}><WiHumidity style={{fontSize: "2rem"}}/>  Humidity: {city.humidity}%</h3>
            <h3 style={{color: "aqua"}}><WiHail style={{fontSize: "2rem"}}/> Pressure: {city.pressure} hPa</h3>
            </div><hr/>
 
          <div className="time">
-         <h4><span ><WiSunrise style={{fontSize: "1.9rem",color: "red"}}/> Sunrise: {sun.risetime}</span> <span><WiSunset style={{fontSize: "1.9rem",color: "darkorange"}}/> Sunset: {sun.settime} </span> 
-          <span><WiTime3 style={{fontSize: "1.9rem",color: "pink"}}/>Day: {time}</span> </h4> 
+         <h4><span ><WiSunrise style={{fontSize: "1rem",color: "red"}}/> Sunrise: {sun.risetime}</span> <span><WiSunset style={{fontSize: "1.9rem",color: "darkorange"}}/> Sunset: {sun.settime} </span> </h4> 
+          <h5><span><WiTime3 style={{fontSize: "1rem",color: "pink"}}/> Time: {time.toLocaleTimeString()} </span><span>Day: {time.toLocaleDateString()}</span> </h5>
          </div>
          </div>)}
         
