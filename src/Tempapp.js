@@ -104,7 +104,7 @@ const Tempapp=()=>{
            </div><hr/>
 
          <div className="time">
-         <h4><span ><WiSunrise style={{fontSize: "1rem",color: "red"}}/> Sunrise: {sun.risetime}</span> <span><WiSunset style={{fontSize: "1.9rem",color: "darkorange"}}/> Sunset: {sun.settime} </span> </h4> 
+         <h4><span ><WiSunrise style={{fontSize: "1.9rem",color: "red"}}/> Sunrise: {sun.risetime}</span> <span><WiSunset style={{fontSize: "1.9rem",color: "darkorange"}}/> Sunset: {sun.settime} </span> </h4> 
           <h5><span><WiTime3 style={{fontSize: "1rem",color: "pink"}}/> Time: {time.toLocaleTimeString()} </span><span>Day: {time.toLocaleDateString()}</span> </h5>
          </div>
          </div>)}
