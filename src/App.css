@@ -66,25 +66,28 @@ input[type=text]{
   color: #61dafb;
 }
 @media screen and (max-width: 696px) {
+  .App{
+    width:100%
+  }
   body{
     text-align: center;
   }
   .extra{
     display:grid;
-    text-align: justify;
+    /* text-align: justify; */
   }
   .temp{
     display: grid;
-    text-align: justify;
+    /* text-align: justify; */
     
   }
   .time h4{
     display: grid;
-    text-align: justify;
+    /* text-align: justify; */
   }
   .time h5{
     display: grid;
-    text-align: justify;
+    /* text-align: justify; */
   }
 }
 
